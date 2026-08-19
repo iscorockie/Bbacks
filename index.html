@@ -1,718 +1,1896 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ghouse Records — Kiwatule, Kampala</title>
-<meta name="description" content="Ghouse Records: recording studio and label in Kiwatule, Kampala. Book studio sessions, catch the monthly silent disco night.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#100E0C;
-    --bg-elevated:#1B1714;
-    --bg-elevated-2:#231D19;
-    --paper:#F3EDE4;
-    --ink:#F3EDE4;
-    --muted:#9C948A;
-    --line:#332C26;
-    --accent:#E8432F;
-    --radius:2px;
-    --text-secondary:#CFC7BC;
-    --header-bg:rgba(16,14,12,.82);
-    --invert-bg:#F3EDE4;
-    --invert-text:#100E0C;
-  }
-  html[data-theme="light"]{
-    --bg:#F3EDE4;
-    --bg-elevated:#EAE2D6;
-    --bg-elevated-2:#E0D6C6;
-    --ink:#1B1613;
-    --muted:#746B60;
-    --line:#D8CDBC;
-    --text-secondary:#4A4038;
-    --header-bg:rgba(243,237,228,.88);
-    --invert-bg:#100E0C;
-    --invert-text:#F3EDE4;
-  }
-  body{transition:background-color .25s ease, color .25s ease;}
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--accent); color:#100E0C;}
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
-  .eyebrow{
-    font-family:'Space Mono',monospace;
-    font-size:12px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .eyebrow em{font-style:normal; color:var(--accent);}
-  h1,h2,h3{
-    font-family:'Anton',sans-serif;
-    font-weight:400;
-    text-transform:uppercase;
-    line-height:0.94;
-    letter-spacing:.01em;
-  }
-  h2{font-size:clamp(34px,5.5vw,58px); margin-bottom:10px;}
-  .section{padding:100px 0;}
-  .section-head{margin-bottom:56px; max-width:640px;}
-  .section-head p{color:var(--muted); font-size:16px; margin-top:14px; line-height:1.6;}
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brunchbacks Construction Company - Building Uganda's Future</title>
+    <meta name="description" content="Brunchbacks Construction Company - Premium construction services in Uganda. Residential, Commercial, and Infrastructure development.">
+    <style>
+        :root {
+            --primary: #1a2a3a;
+            --secondary: #c9a227;
+            --accent: #e8a817;
+            --dark: #0f1923;
+            --darker: #0a121b;
+            --light: #f5f1e8;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --gold-gradient: linear-gradient(135deg, #c9a227, #e8a817, #f0c040);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.25);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+            --font-primary: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+        }
 
-  /* ---------- NAV ---------- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    backdrop-filter:blur(10px);
-    background:var(--header-bg);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:72px;
-  }
-  .logo{
-    font-family:'Anton',sans-serif; font-size:20px; letter-spacing:.02em;
-    text-transform:uppercase;
-  }
-  .logo span{color:var(--accent);}
-  .navlinks{display:flex; gap:30px; align-items:center;}
-  .navlinks a{
-    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em;
-    text-transform:uppercase; color:var(--muted);
-    transition:color .2s;
-  }
-  .navlinks a:hover{color:var(--ink);}
-  .navlinks a.ig{color:var(--ink); border:1px solid var(--line); padding:9px 16px; border-radius:100px;}
-  .navlinks a.ig:hover{border-color:var(--accent); color:var(--accent);}
-  .nav-right{display:flex; align-items:center; gap:20px;}
-  .theme-toggle{
-    width:38px; height:38px; border-radius:50%; flex-shrink:0;
-    border:1px solid var(--line); background:transparent; cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition:border-color .2s, transform .2s;
-  }
-  .theme-toggle:hover{border-color:var(--accent); transform:translateY(-1px);}
-  .theme-toggle span{font-size:16px; line-height:1; color:var(--ink);}
-  .theme-toggle .icon-moon{display:none;}
-  html[data-theme="light"] .theme-toggle .icon-sun{display:none;}
-  html[data-theme="light"] .theme-toggle .icon-moon{display:inline;}
-  @media (max-width:760px){
-    .navlinks{display:none;}
-  }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    min-height:92vh;
-    display:flex; flex-direction:column; justify-content:center;
-    padding-top:110px;
-    padding-bottom:60px;
-    overflow:hidden;
-  }
-  .eq{
-    position:absolute; inset:0; z-index:0;
-    display:flex; align-items:flex-end; justify-content:space-between;
-    gap:4px;
-    opacity:.5;
-  }
-  .eq i{
-    flex:1;
-    background:linear-gradient(to top, var(--accent), transparent);
-    opacity:.3;
-    animation:bar 1.8s ease-in-out infinite;
-  }
-  @keyframes bar{
-    0%,100%{height:6%;}
-    50%{height:var(--h,60%);}
-  }
-  .hero-inner{position:relative; z-index:2;}
-  .hero h1{
-    font-size:clamp(48px,9vw,116px);
-    margin:18px 0 22px;
-  }
-  .hero h1 .line{display:block;}
-  .hero h1 .accented{color:var(--accent);}
-  .hero-sub{
-    max-width:540px; color:var(--muted); font-size:17px; line-height:1.65;
-    margin-bottom:40px;
-  }
-  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{
-    font-family:'Space Mono',monospace; font-size:12.5px; letter-spacing:.08em;
-    text-transform:uppercase;
-    padding:15px 26px;
-    border-radius:100px;
-    display:inline-flex; align-items:center; gap:8px;
-    transition:transform .18s ease, background .2s, border-color .2s, color .2s;
-    cursor:pointer; border:1px solid transparent;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-solid{background:var(--accent); color:#100E0C;}
-  .btn-ghost{border-color:var(--line); color:var(--ink);}
-  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
 
-  /* ---------- MARQUEE ---------- */
-  .marquee{
-    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-    overflow:hidden; white-space:nowrap; background:var(--bg-elevated);
-  }
-  .marquee-track{
-    display:inline-block; padding:16px 0;
-    animation:scroll 28s linear infinite;
-  }
-  .marquee-track span{
-    font-family:'Space Mono',monospace; font-size:13px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--muted); margin:0 26px;
-  }
-  .marquee-track span.hi{color:var(--accent);}
-  @keyframes scroll{ 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+        body {
+            font-family: var(--font-primary);
+            color: var(--text);
+            background: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-  /* ---------- ABOUT ---------- */
-  .about-grid{
-    display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:start;
-  }
-  .about-copy p{color:var(--text-secondary); font-size:16px; line-height:1.75; margin-bottom:18px; max-width:520px;}
-  .about-copy p strong{color:var(--ink);}
-  .stat-list{
-    border-top:1px solid var(--line);
-  }
-  .stat{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:20px 0; border-bottom:1px solid var(--line);
-    font-family:'Space Mono',monospace;
-  }
-  .stat .k{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
-  .stat .v{font-family:'Anton',sans-serif; font-size:26px; text-transform:none;}
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
 
-  /* ---------- BOOKING ---------- */
-  .booking{background:var(--bg-elevated); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .booking-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; align-items:start;}
-  .booking-copy p{color:var(--text-secondary); font-size:16px; line-height:1.75; margin-bottom:16px; max-width:440px;}
-  .package-list{margin-top:28px; display:flex; flex-direction:column; gap:0;}
-  .package{
-    display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line);
-    font-family:'Space Mono',monospace; font-size:13px;
-  }
-  .package .p-name{color:var(--ink); text-transform:uppercase; letter-spacing:.05em;}
-  .package .p-rate{color:var(--muted);}
-  .package.hl .p-rate{color:var(--accent);}
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(201, 162, 39, 0.2);
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-  form{
-    background:var(--bg); border:1px solid var(--line); border-radius:var(--radius);
-    padding:34px;
-  }
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
-  .field{display:flex; flex-direction:column; gap:8px; margin-bottom:16px;}
-  .field label{
-    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
-  }
-  .field input, .field select, .field textarea{
-    background:var(--bg-elevated); border:1px solid var(--line); color:var(--ink);
-    padding:13px 14px; font-family:'Inter',sans-serif; font-size:14.5px; border-radius:2px;
-    width:100%;
-  }
-  .field select{appearance:none; cursor:pointer;}
-  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--accent); outline:none;}
-  .field textarea{resize:vertical; min-height:80px;}
-  .submit-row{display:flex; align-items:center; gap:16px; margin-top:6px; flex-wrap:wrap;}
-  .form-note{font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;}
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            padding: 20px 50px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(15, 25, 35, 0.95);
+            padding: 12px 50px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+        }
+        .nav-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gold-gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            color: var(--dark);
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+        }
+        .nav-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .nav-logo-text span {
+            color: var(--secondary);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 25px;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary);
+            background: rgba(201, 162, 39, 0.12);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 24px;
+        }
+        .nav-cta {
+            background: var(--gold-gradient);
+            color: var(--dark) !important;
+            font-weight: 700 !important;
+            padding: 10px 24px !important;
+            border-radius: 30px !important;
+            margin-left: 12px;
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.55) !important;
+            background: var(--accent) !important;
+            color: var(--dark) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            z-index: 10001;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
 
-  /* ---------- SILENT DISCO ---------- */
-  .disco-list{border-top:1px solid var(--line);}
-  .disco-row{
-    display:grid; grid-template-columns:110px 1fr auto auto; gap:24px; align-items:center;
-    padding:24px 0; border-bottom:1px solid var(--line);
-  }
-  .disco-date{font-family:'Space Mono',monospace; display:flex; flex-direction:column; line-height:1.3;}
-  .disco-date .dd{font-size:11px; letter-spacing:.1em; color:var(--accent);}
-  .disco-date .dm{font-size:18px; color:var(--ink);}
-  .disco-info h3{font-family:'Anton',sans-serif; text-transform:uppercase; font-size:20px; margin-bottom:4px;}
-  .disco-info p{font-size:13.5px; color:var(--muted);}
-  .disco-price{font-family:'Space Mono',monospace; font-size:14px; color:var(--ink); white-space:nowrap;}
-  .rsvp{
-    font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--ink); border:1px solid var(--line); padding:9px 15px; border-radius:100px;
-    transition:all .2s; white-space:nowrap;
-  }
-  .rsvp:hover{border-color:var(--accent); color:var(--accent);}
-  .disco-note{
-    margin-top:22px; font-family:'Space Mono',monospace; font-size:12px; color:var(--muted);
-  }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a121b 0%, #1a2a3a 40%, #1e3a4a 60%, #1a2a3a 80%, #0a121b 100%);
+            overflow: hidden;
+            padding: 0 50px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, var(--light), transparent);
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.15);
+            color: var(--secondary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            animation: fadeInUp 1.2s ease 0.2s forwards;
+            opacity: 0;
+        }
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            animation: fadeInUp 1.2s ease 0.4s forwards;
+            opacity: 0;
+        }
+        .hero-title span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 650px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+            animation: fadeInUp 1.2s ease 0.6s forwards;
+            opacity: 0;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease 0.8s forwards;
+            opacity: 0;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: var(--dark);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.55);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+        .btn-outline:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            background: rgba(201, 162, 39, 0.1);
+            transform: translateY(-3px);
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+        .hero-scroll-line {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--secondary), transparent);
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
 
-  /* ---------- TICKETING ---------- */
-  .tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:44px;}
-  .tier{
-    border:1px solid var(--line); border-radius:var(--radius); padding:30px 26px;
-    display:flex; flex-direction:column; gap:14px;
-    transition:border-color .25s;
-  }
-  .tier.featured{border-color:var(--accent); background:var(--bg-elevated);}
-  .tier-name{font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
-  .tier-price{font-family:'Anton',sans-serif; font-size:40px;}
-  .tier-price sup{font-family:'Space Mono',monospace; font-size:14px; margin-left:4px; color:var(--muted);}
-  .tier ul{list-style:none; font-size:13.5px; color:var(--text-secondary); line-height:2; margin:6px 0 10px;}
-  .tier ul li::before{content:"— "; color:var(--muted);}
-  .stepper{display:flex; align-items:center; gap:14px; margin-top:auto;}
-  .stepper button{
-    width:32px; height:32px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--ink);
-    font-size:16px; cursor:pointer; font-family:'Space Mono',monospace;
-  }
-  .stepper button:hover{border-color:var(--accent); color:var(--accent);}
-  .stepper .qty{font-family:'Space Mono',monospace; min-width:18px; text-align:center;}
-  .tier-btn{
-    margin-top:10px; text-align:center; padding:13px; border-radius:100px;
-    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-    background:var(--invert-bg); color:var(--invert-text); cursor:pointer; border:none;
-  }
-  .tier-btn:hover{background:var(--accent);}
+        /* Section Common */
+        .section {
+            padding: 100px 50px;
+            position: relative;
+        }
+        .section-alt {
+            background: var(--white);
+        }
+        .section-dark {
+            background: var(--dark);
+            color: var(--white);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-tag {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        .section-dark .section-title {
+            color: var(--white);
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .section-dark .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
 
-  .ticket-summary{
-    background:var(--bg-elevated); border:1px dashed var(--line); border-radius:var(--radius);
-    padding:30px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center;
-  }
-  .ref{font-family:'Space Mono',monospace; font-size:13px; color:var(--muted);}
-  .ref b{color:var(--ink); letter-spacing:.05em;}
-  .momo-steps{font-family:'Space Mono',monospace; font-size:12px; color:var(--muted); line-height:2; margin-top:10px;}
-  .momo-steps b{color:var(--ink);}
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gold-gradient);
+        }
+        .about-experience {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            background: var(--dark);
+            color: var(--white);
+            padding: 25px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            border: 2px solid var(--secondary);
+        }
+        .about-experience-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .about-experience-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .about-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        .about-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 14px;
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        .about-features li::before {
+            content: '✓';
+            width: 28px;
+            height: 28px;
+            background: var(--gold-gradient);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
 
-  /* ---------- GALLERY ---------- */
-  .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
-  .gallery img{
-    width:100%; height:220px; object-fit:cover; border-radius:2px; filter:grayscale(.15) contrast(1.05);
-    transition:filter .3s;
-  }
-  .gallery a:hover img{filter:none;}
-  .gallery a:nth-child(1){grid-row:span 2; height:100%;}
-  .gallery a:nth-child(1) img{height:100%;}
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
 
-  /* ---------- FOOTER ---------- */
-  footer{border-top:1px solid var(--line); padding:70px 0 30px;}
-  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:50px; margin-bottom:60px;}
-  .footer-brand h3{font-size:32px; margin-bottom:14px;}
-  .footer-brand p{color:var(--muted); font-size:14px; max-width:280px; line-height:1.6;}
-  .foot-col{display:flex; flex-direction:column; gap:12px;}
-  .foot-col .k{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;}
-  .foot-col a, .foot-col span{font-size:14.5px; color:var(--text-secondary);}
-  .foot-col a:hover{color:var(--accent);}
-  .footer-bottom{
-    display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid var(--line);
-    font-family:'Space Mono',monospace; font-size:11.5px; color:var(--muted); flex-wrap:wrap; gap:10px;
-  }
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(201, 162, 39, 0.12);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        .service-card:hover .service-icon {
+            background: var(--gold-gradient);
+            transform: rotate(-5deg) scale(1.05);
+        }
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-family: var(--font-heading);
+        }
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
 
-  @media (max-width:900px){
-    .about-grid, .booking-grid{grid-template-columns:1fr; gap:40px;}
-    .tiers{grid-template-columns:1fr;}
-    .gallery{grid-template-columns:1fr 1fr;}
-    .gallery a:nth-child(1){grid-row:span 1; height:220px;}
-    .footer-grid{grid-template-columns:1fr;}
-    .form-row{grid-template-columns:1fr;}
-    .disco-row{grid-template-columns:1fr; gap:8px; text-align:left;}
-    .disco-price{order:3;}
-    .rsvp{order:4; align-self:flex-start;}
-  }
-  @media (max-width:600px){
-    .section{padding:70px 0;}
-  }
-</style>
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .project-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px;
+            background: linear-gradient(to top, rgba(10, 18, 27, 0.95), transparent);
+            color: var(--white);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+        .project-overlay h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-family: var(--font-heading);
+        }
+        .project-overlay p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .project-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold-gradient);
+            color: var(--dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .process-step {
+            text-align: center;
+            padding: 35px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+        .process-step:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            border-color: rgba(201, 162, 39, 0.4);
+        }
+        .process-number {
+            width: 55px;
+            height: 55px;
+            background: var(--gold-gradient);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            margin: 0 auto 18px;
+        }
+        .process-step h4 {
+            color: var(--white);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .process-step p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .team-card {
+            text-align: center;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 35px 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin: 0 auto 18px;
+            box-shadow: 0 5px 20px rgba(201, 162, 39, 0.3);
+        }
+        .team-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: var(--font-heading);
+        }
+        .team-card p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            padding: 35px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .testimonial-quote {
+            font-size: 2rem;
+            color: var(--secondary);
+            line-height: 1;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+        .testimonial-card p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        .testimonial-author h5 {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .testimonial-author span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .contact-details {
+            list-style: none;
+        }
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(201, 162, 39, 0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: var(--font-primary);
+            transition: var(--transition);
+            background: #fafafa;
+            color: var(--text);
+            outline: none;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--secondary);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+        .contact-form .btn {
+            width: 100%;
+            justify-content: center;
+            font-size: 1rem;
+            padding: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--darker);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 70px 50px 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        .footer-brand .nav-logo {
+            margin-bottom: 20px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 350px;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        .footer-social a:hover {
+            background: var(--gold-gradient);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold-gradient);
+            color: var(--dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Placeholder Image Styles (since we're not using real images) */
+        .img-placeholder {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 50%, #1a2a3a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .img-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(201, 162, 39, 0.1), transparent, rgba(201, 162, 39, 0.1), transparent);
+            animation: rotate 15s linear infinite;
+        }
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .img-placeholder-content {
+            position: relative;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .img-placeholder-content span {
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .navbar.scrolled {
+                padding: 10px 20px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--darker);
+                flex-direction: column;
+                padding: 100px 30px 40px;
+                gap: 10px;
+                transition: var(--transition);
+                box-shadow: -10px 0 50px rgba(0, 0, 0, 0.3);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 1rem;
+                padding: 12px 20px;
+                display: block;
+                width: 100%;
+            }
+            .nav-cta {
+                margin-left: 0;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero {
+                padding: 0 20px;
+            }
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 25px;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-experience {
+                right: 15px;
+                bottom: -20px;
+                padding: 18px 22px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-form {
+                padding: 25px;
+            }
+            .footer {
+                padding: 50px 20px 25px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <nav class="wrap">
-    <a href="#top" class="logo">GHOUSE<span>·</span>RECORDS</a>
-    <div class="nav-right">
-      <div class="navlinks">
-        <a href="#booking">Book Studio</a>
-        <a href="#disco">Silent Disco</a>
-        <a href="#tickets">Tickets</a>
-        <a href="#gallery">Gallery</a>
-        <a class="ig" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener">@ghouserecordsug</a>
-      </div>
-      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode" title="Toggle light / dark mode">
-        <span class="icon-sun" aria-hidden="true">☀</span>
-        <span class="icon-moon" aria-hidden="true">☾</span>
-      </button>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
     </div>
-  </nav>
-</header>
 
-<main id="top">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="nav-logo">
+            <div class="nav-logo-icon">B</div>
+            <div class="nav-logo-text">Brunch<span>backs</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="eq" id="eq" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
-      <p class="eyebrow">Kiwatule, Kampala <em>·</em> Recording Studio &amp; Label</p>
-      <h1>
-        <span class="line">BUILT TO</span>
-        <span class="line accented">RECORD.</span>
-      </h1>
-      <p class="hero-sub">Ghouse Records is a working recording studio in Kiwatule — tracking, mixing and mastering, day in and day out. Once a month, the same floor clears out for a silent disco night.</p>
-
-      <div class="hero-cta">
-        <a href="#booking" class="btn btn-solid">Book a session</a>
-        <a href="#disco" class="btn btn-ghost">Silent disco nights</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track" id="marqueeTrack"></div>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="wrap about-grid">
-      <div class="about-copy">
-        <p class="eyebrow" style="margin-bottom:18px;">The studio</p>
-        <p><strong>Ghouse Records started as a booth in Kiwatule</strong> built for artists who needed somewhere honest to record — no gatekeeping, no rush. Five years on it's a full studio, a small stable of signed acts, and a label that puts out what gets made here.</p>
-        <p>Most days, the room is booked for tracking, mixing and mastering. Once a month, on a Saturday, the gear gets cleared and the same floor turns into a silent disco — headsets on, one night, Kiwatule.</p>
-        <p>Sessions, nights, tickets — everything routes through this page.</p>
-      </div>
-      <div class="stat-list">
-        <div class="stat"><span class="k">Based in</span><span class="v">Kiwatule</span></div>
-        <div class="stat"><span class="k">Running since</span><span class="v">2021</span></div>
-        <div class="stat"><span class="k">Studio bookings</span><span class="v">Daily</span></div>
-        <div class="stat"><span class="k">Silent disco</span><span class="v">Monthly</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING -->
-  <section class="section booking" id="booking">
-    <div class="wrap booking-grid">
-      <div class="booking-copy">
-        <p class="eyebrow" style="margin-bottom:18px;">The main thing</p>
-        <h2 style="margin-bottom:20px;">Book a<br>Session</h2>
-        <p>The booth that started it all is still booked out most days. Recording, mixing, mastering or full-day rehearsal blocks — tell us what you need and a producer confirms your slot over WhatsApp.</p>
-        <div class="package-list">
-          <div class="package hl"><span class="p-name">Recording (2 hrs)</span><span class="p-rate">UGX 30,000</span></div>
-          <div class="package"><span class="p-name">Mixing (per track)</span><span class="p-rate">UGX 150,000</span></div>
-          <div class="package"><span class="p-name">Mastering (per track)</span><span class="p-rate">UGX 80,000</span></div>
-          <div class="package"><span class="p-name">Full day block (8hrs)</span><span class="p-rate">UGX 350,000</span></div>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">🏗️ Building Uganda Since 2008</div>
+            <h1 class="hero-title">We Build the <span>Future</span> of Uganda</h1>
+            <p class="hero-subtitle">
+                Brunchbacks Construction Company delivers premium construction services —
+                from residential homes to large-scale infrastructure projects. Quality, integrity, and excellence in every build.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start Your Project →</a>
+                <a href="#projects" class="btn btn-outline">View Our Work</a>
+            </div>
         </div>
-      </div>
-
-      <form id="bookingForm">
-        <div class="form-row">
-          <div class="field">
-            <label for="b-name">Your name</label>
-            <input id="b-name" type="text" required placeholder="Full name">
-          </div>
-          <div class="field">
-            <label for="b-phone">Phone / WhatsApp</label>
-            <input id="b-phone" type="tel" required placeholder="07XX XXX XXX">
-          </div>
+        <div class="hero-scroll">
+            <span>Scroll Down</span>
+            <div class="hero-scroll-line"></div>
         </div>
-        <div class="form-row">
-          <div class="field">
-            <label for="b-date">Preferred date</label>
-            <input id="b-date" type="date" required>
-          </div>
-          <div class="field">
-            <label for="b-time">Preferred time</label>
-            <input id="b-time" type="time" required>
-          </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Who We Are</span>
+                <h2 class="section-title">About Brunchbacks Construction</h2>
+                <p class="section-subtitle">A legacy of building excellence across Uganda — from Kampala to Gulu, we deliver structures that stand the test of time.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="img-placeholder">
+                        <div class="img-placeholder-content">🏗️<span>Construction Site</span></div>
+                    </div>
+                    <div class="about-experience">
+                        <div class="about-experience-number">15+</div>
+                        <div class="about-experience-label">Years Experience</div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h3>Building Trust, One Project at a Time</h3>
+                    <p>
+                        Founded in 2008 in Kampala, Brunchbacks Construction Company has grown from a small local builder
+                        into one of Uganda's most trusted construction firms. We specialize in residential, commercial,
+                        and infrastructure development, bringing international standards to every project we undertake.
+                    </p>
+                    <p>
+                        Our team of engineers, architects, and skilled craftsmen work together to deliver projects
+                        on time and within budget — without ever compromising on quality or safety.
+                    </p>
+                    <ul class="about-features">
+                        <li>Fully licensed &amp; insured construction company</li>
+                        <li>ISO-certified quality management systems</li>
+                        <li>Local expertise with international standards</li>
+                        <li>Commitment to safety &amp; sustainability</li>
+                        <li>Transparent pricing and project timelines</li>
+                    </ul>
+                    <a href="#services" class="btn btn-primary" style="margin-top: 10px;">Explore Our Services</a>
+                </div>
+            </div>
         </div>
-        <div class="form-row">
-          <div class="field">
-            <label for="b-package">Session type</label>
-            <select id="b-package">
-              <option>Recording</option>
-              <option>Mixing</option>
-              <option>Mastering</option>
-              <option>Full day block</option>
-              <option>Rehearsal space</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="b-artists">Number of artists</label>
-            <input id="b-artists" type="number" min="1" value="1">
-          </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section section-dark" id="stats">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 50px;">
+                <span class="section-tag">Our Track Record</span>
+                <h2 class="section-title">Numbers That Speak for Themselves</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="450">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="1200">0</div>
+                    <div class="stat-label">Skilled Workers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Client Satisfaction %</div>
+                </div>
+            </div>
         </div>
-        <div class="field">
-          <label for="b-notes">Anything the producer should know</label>
-          <textarea id="b-notes" placeholder="Genre, reference tracks, engineer preference…"></textarea>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-alt" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">Our Construction Services</h2>
+                <p class="section-subtitle">Comprehensive construction solutions tailored to meet the unique needs of every client.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Residential Construction</h3>
+                    <p>Custom homes, apartments, and housing developments built with premium materials and meticulous attention to detail. From single-family homes to multi-unit complexes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Building</h3>
+                    <p>Office buildings, retail spaces, hotels, and mixed-use developments. We create functional, modern spaces that elevate your business presence.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Infrastructure &amp; Civil Works</h3>
+                    <p>Roads, bridges, drainage systems, and public infrastructure projects. We partner with government and private sector for large-scale civil engineering.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Industrial Construction</h3>
+                    <p>Factories, warehouses, and industrial facilities designed for efficiency and durability. We handle complex structural requirements with precision.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Renovation &amp; Remodeling</h3>
+                    <p>Transform existing spaces with our expert renovation services. Structural upgrades, interior remodeling, and building restoration projects.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Project Management</h3>
+                    <p>End-to-end project management and consultancy services. We handle planning, budgeting, scheduling, and supervision for your construction projects.</p>
+                </div>
+            </div>
         </div>
-        <div class="submit-row">
-          <button type="submit" class="btn btn-solid" style="border:none;">Send booking request →</button>
-          <span class="form-note">Opens WhatsApp with your details pre-filled.<br>A producer confirms the slot within a day.</span>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">A selection of our recent and ongoing projects across Uganda.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="img-placeholder">
+                        <div class="img-placeholder-content">🏢<span>Kampala Office Tower</span></div>
+                    </div>
+                    <div class="project-tag">Commercial</div>
+                    <div class="project-overlay">
+                        <h4>Acacia Business Tower</h4>
+                        <p>Kampala, Uganda</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="img-placeholder">
+                        <div class="img-placeholder-content">🏘️<span>Residential Complex</span></div>
+                    </div>
+                    <div class="project-tag">Residential</div>
+                    <div class="project-overlay">
+                        <h4>Lakeview Apartments</h4>
+                        <p>Entebbe, Uganda</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="img-placeholder">
+                        <div class="img-placeholder-content">🛣️<span>Highway Project</span></div>
+                    </div>
+                    <div class="project-tag">Infrastructure</div>
+                    <div class="project-overlay">
+                        <h4>Kabalagala Expressway</h4>
+                        <p>Kampala, Uganda</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="img-placeholder">
+                        <div class="img-placeholder-content">🏭<span>Factory Complex</span></div>
+                    </div>
+                    <div class="project-tag">Industrial</div>
+                    <div class="project-overlay">
+                        <h4>Namanve Industrial Park</h4>
+                        <p>Mukono, Uganda</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="img-placeholder">
+                        <div class="img-placeholder-content">🏫<span>School Building</span></div>
+                    </div>
+                    <div class="project-tag">Public</div>
+                    <div class="project-overlay">
+                        <h4>Gulu Community School</h4>
+                        <p>Gulu, Northern Uganda</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="img-placeholder">
+                        <div class="img-placeholder-content">🏥<span>Hospital Wing</span></div>
+                    </div>
+                    <div class="project-tag">Healthcare</div>
+                    <div class="project-overlay">
+                        <h4>Mbarara Medical Center</h4>
+                        <p>Mbarara, Uganda</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </form>
-    </div>
-  </section>
+    </section>
 
-  <!-- SILENT DISCO -->
-  <section class="section" id="disco">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Once a month</p>
-        <h2>Silent Disco Night</h2>
-        <p>One Saturday a month, the studio floor clears and the headsets come out. Same room, different rules — quiet outside, loud inside.</p>
-      </div>
-
-      <div class="disco-list" id="discoList">
-        <div class="disco-row">
-          <div class="disco-date"><span class="dd">SAT</span><span class="dm">AUG 30</span></div>
-          <div class="disco-info">
-            <h3>Silent Disco Night</h3>
-            <p>Ghouse Records Studio, Kiwatule · Doors 8PM</p>
-          </div>
-          <div class="disco-price">UGX 30,000</div>
-          <a class="rsvp" href="#" data-event="Silent Disco Night (Sat 30 Aug)">RSVP →</a>
+    <!-- Process Section -->
+    <section class="section section-dark" id="process">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 50px;">
+                <span class="section-tag">How We Work</span>
+                <h2 class="section-title">Our Proven Process</h2>
+                <p class="section-subtitle">A systematic approach to ensure every project is delivered with precision and care.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h4>Consultation &amp; Planning</h4>
+                    <p>We meet with you to understand your vision, requirements, and budget. Our team creates a detailed project plan.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h4>Design &amp; Engineering</h4>
+                    <p>Our architects and engineers develop comprehensive designs, blueprints, and structural specifications.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h4>Construction Phase</h4>
+                    <p>Skilled craftsmen execute the build with rigorous quality control and safety protocols at every step.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h4>Delivery &amp; Handover</h4>
+                    <p>Final inspections, quality assurance, and a smooth handover — we stand by our work long after completion.</p>
+                </div>
+            </div>
         </div>
-        <div class="disco-row">
-          <div class="disco-date"><span class="dd">SAT</span><span class="dm">SEP 27</span></div>
-          <div class="disco-info">
-            <h3>Silent Disco Night</h3>
-            <p>Ghouse Records Studio, Kiwatule · Doors 8PM</p>
-          </div>
-          <div class="disco-price">UGX 30,000</div>
-          <a class="rsvp" href="#" data-event="Silent Disco Night (Sat 27 Sep)">RSVP →</a>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section section-alt" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Meet the Team</span>
+                <h2 class="section-title">Leadership &amp; Experts</h2>
+                <p class="section-subtitle">The people behind our success — experienced professionals dedicated to building excellence.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">B</div>
+                    <h4>Brian Ssemakula</h4>
+                    <p>Founder &amp; CEO</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">A</div>
+                    <h4>Alice Namutebi</h4>
+                    <p>Chief Engineer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">D</div>
+                    <h4>David Okello</h4>
+                    <p>Project Director</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">G</div>
+                    <h4>Grace Kizza</h4>
+                    <p>Head of Architecture</p>
+                </div>
+            </div>
         </div>
-        <div class="disco-row">
-          <div class="disco-date"><span class="dd">SAT</span><span class="dm">OCT 25</span></div>
-          <div class="disco-info">
-            <h3>Silent Disco Night</h3>
-            <p>Ghouse Records Studio, Kiwatule · Doors 8PM</p>
-          </div>
-          <div class="disco-price">UGX 30,000</div>
-          <a class="rsvp" href="#" data-event="Silent Disco Night (Sat 25 Oct)">RSVP →</a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Client Stories</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Hear from the people and organizations who have trusted us with their projects.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p>Brunchbacks Construction exceeded our expectations. They delivered our office building ahead of schedule and the quality of work is outstanding. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">K</div>
+                        <div>
+                            <h5>Kenneth M.</h5>
+                            <span>CEO, Kampala Tech Hub</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p>From planning to handover, the team was professional, transparent, and communicative. Our family home is exactly what we dreamed of. Thank you Brunchbacks!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div>
+                            <h5>Sarah N.</h5>
+                            <span>Homeowner, Entebbe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p>We partnered with Brunchbacks on a major infrastructure project. Their attention to safety standards and project management was world-class. A truly reliable partner.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div>
+                            <h5>James O.</h5>
+                            <span>Government Project Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <p class="disco-note">Held the last Saturday of every month. Dates confirmed on Instagram closer to the night.</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- TICKETING -->
-  <section class="section" id="tickets">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">For the next disco night</p>
-        <h2>Get Tickets</h2>
-        <p>Pick a tier, choose your headcount, and check out over WhatsApp or MTN MoMo. Your reference code is your ticket at the door.</p>
-      </div>
-
-      <div class="tiers" id="tiersGrid">
-        <div class="tier" data-tier="General" data-price="30000">
-          <span class="tier-name">General Floor</span>
-          <span class="tier-price">30k<sup>UGX</sup></span>
-          <ul>
-            <li>Entry + wireless headset</li>
-            <li>Full night access</li>
-            <li>Standing floor</li>
-          </ul>
-          <div class="stepper">
-            <button type="button" class="qty-minus">−</button>
-            <span class="qty">1</span>
-            <button type="button" class="qty-plus">+</button>
-          </div>
-          <button class="tier-btn" type="button">Add to order</button>
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Start Your Construction Journey</h2>
+                <p class="section-subtitle">Have a project in mind? Reach out to us for a free consultation and quote.</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>We're here to help bring your vision to life. Reach out via any of the channels below, or visit our office in Kampala.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Head Office:</strong><br>
+                                Plot 45, Jinja Road, Kampala, Uganda
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                +256 700 123 456<br>
+                                +256 752 987 654
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@brunchbacks.co.ug<br>
+                                projects@brunchbacks.co.ug
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">🕐</div>
+                            <div>
+                                <strong>Working Hours:</strong><br>
+                                Monday – Saturday: 8:00 AM – 6:00 PM<br>
+                                Sunday: Closed
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="residential">Residential Construction</option>
+                                <option value="commercial">Commercial Building</option>
+                                <option value="infrastructure">Infrastructure &amp; Civil Works</option>
+                                <option value="industrial">Industrial Construction</option>
+                                <option value="renovation">Renovation &amp; Remodeling</option>
+                                <option value="project-management">Project Management</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project, location, timeline, and budget..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message →</button>
+                    </form>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="tier featured" data-tier="VIP Booth" data-price="70000">
-          <span class="tier-name">VIP Booth</span>
-          <span class="tier-price">70k<sup>UGX</sup></span>
-          <ul>
-            <li>Reserved VIP booth</li>
-            <li>Priority headset</li>
-            <li>2 house drinks included</li>
-          </ul>
-          <div class="stepper">
-            <button type="button" class="qty-minus">−</button>
-            <span class="qty">1</span>
-            <button type="button" class="qty-plus">+</button>
-          </div>
-          <button class="tier-btn" type="button">Add to order</button>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="nav-logo">
+                        <div class="nav-logo-icon">B</div>
+                        <div class="nav-logo-text">Brunch<span>backs</span></div>
+                    </a>
+                    <p>
+                        Brunchbacks Construction Company is a leading construction firm in Uganda,
+                        delivering quality residential, commercial, and infrastructure projects since 2008.
+                        We build with integrity, innovation, and a commitment to excellence.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#team">Team</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Residential Construction</a></li>
+                        <li><a href="#services">Commercial Building</a></li>
+                        <li><a href="#services">Infrastructure</a></li>
+                        <li><a href="#services">Industrial Projects</a></li>
+                        <li><a href="#services">Renovation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Plot 45, Jinja Road</a></li>
+                        <li><a href="#contact">Kampala, Uganda</a></li>
+                        <li><a href="tel:+256700123456">+256 700 123 456</a></li>
+                        <li><a href="mailto:info@brunchbacks.co.ug">info@brunchbacks.co.ug</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brunchbacks Construction Company Ltd. All rights reserved. | Building Uganda's Future with Excellence</p>
+            </div>
         </div>
+    </footer>
 
-        <div class="tier" data-tier="Group of 5" data-price="130000">
-          <span class="tier-name">Group of 5</span>
-          <span class="tier-price">130k<sup>UGX</sup></span>
-          <ul>
-            <li>5 general floor entries</li>
-            <li>5 headsets included</li>
-            <li>Best for crews &amp; label fam</li>
-          </ul>
-          <div class="stepper">
-            <button type="button" class="qty-minus">−</button>
-            <span class="qty">1</span>
-            <button type="button" class="qty-plus">+</button>
-          </div>
-          <button class="tier-btn" type="button">Add to order</button>
-        </div>
-      </div>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-      <div class="ticket-summary">
-        <div>
-          <p class="ref">Order reference <b id="refCode">—</b></p>
-          <div class="momo-steps" id="momoSteps">
-            Select a tier above to generate your reference code, then:<br>
-            <b>1.</b> Send payment via MTN MoMo to <b>+256 706 612 367</b> (Ghouse Records)<br>
-            <b>2.</b> Use your reference code as the payment comment<br>
-            <b>3.</b> Confirm on WhatsApp — we'll text your e-ticket back
-          </div>
-        </div>
-        <a id="ticketWA" class="btn btn-solid" href="#" target="_blank" rel="noopener">Confirm on WhatsApp →</a>
-      </div>
-    </div>
-  </section>
+    <!-- JavaScript -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 600);
+        });
 
-  <!-- GALLERY -->
-  <section class="section" id="gallery">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">In the room</p>
-        <h2>Gallery</h2>
-      </div>
-      <div class="gallery">
-        <a href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=80" alt="Producer at the mixing desk"></a>
-        <a href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&q=80" alt="Crowd wearing silent disco headphones"></a>
-        <a href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1571266028243-e4bb35c0b13a?w=700&q=80" alt="Studio microphone in the booth"></a>
-        <a href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=700&q=80" alt="DJ set at Ghouse Records"></a>
-      </div>
-    </div>
-  </section>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
 
-</main>
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+            updateActiveLink();
+        });
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>GHOUSE<br>RECORDS</h3>
-        <p>Recording studio and label in Kiwatule, Kampala — with a silent disco night once a month.</p>
-      </div>
-      <div class="foot-col">
-        <span class="k">Visit</span>
-        <span>Kiwatule, Kampala, Uganda</span>
-        <span class="k" style="margin-top:10px;">Contact</span>
-        <a href="https://wa.me/256706612367" target="_blank" rel="noopener">WhatsApp: +256 706 612 367</a>
-        <a href="mailto:booking@ghouserecords.ug">booking@ghouserecords.ug</a>
-      </div>
-      <div class="foot-col">
-        <span class="k">Follow</span>
-        <a href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener">Instagram — @ghouserecordsug</a>
-        <span class="k" style="margin-top:10px;">On this site</span>
-        <a href="#booking">Studio bookings</a>
-        <a href="#disco">Silent disco nights</a>
-        <a href="#tickets">Tickets</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Ghouse Records, Kiwatule.</span>
-      <span>Built for the studio, run from the floor.</span>
-    </div>
-  </div>
-</footer>
+        // Back to top
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-<script>
-  // build equalizer bars
-  const eq = document.getElementById('eq');
-  const barCount = 40;
-  for(let i=0;i<barCount;i++){
-    const bar = document.createElement('i');
-    const h = 20 + Math.random()*70;
-    bar.style.setProperty('--h', h+'%');
-    bar.style.animationDelay = (Math.random()*1.8)+'s';
-    bar.style.animationDuration = (1.3 + Math.random()*1.2)+'s';
-    eq.appendChild(bar);
-  }
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
-  // marquee content
-  const words = ['RECORDING STUDIO','MIXING & MASTERING','BOOK A SESSION','KIWATULE','GHOUSE RECORDS','SILENT DISCO — ONCE A MONTH'];
-  const track = document.getElementById('marqueeTrack');
-  let mHTML = '';
-  for(let r=0;r<2;r++){
-    words.forEach((w,i)=>{ mHTML += `<span class="${i%3===0?'hi':''}">${w}</span>`; });
-  }
-  track.innerHTML = mHTML;
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-  const WHATSAPP_NUMBER = "256706612367";
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
 
-  // theme toggle
-  const themeToggle = document.getElementById('themeToggle');
-  themeToggle.addEventListener('click', ()=>{
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-  });
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
 
-  // RSVP -> whatsapp
-  document.querySelectorAll('.rsvp').forEach(link=>{
-    link.addEventListener('click', e=>{
-      e.preventDefault();
-      const evt = link.dataset.event;
-      const msg = encodeURIComponent(`Hi Ghouse Records! I'd like to RSVP for: ${evt}. Please send payment details.`);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-    });
-  });
+        // Active link highlighting
+        function updateActiveLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 150;
 
-  // booking form -> whatsapp
-  document.getElementById('bookingForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('b-name').value;
-    const phone = document.getElementById('b-phone').value;
-    const date = document.getElementById('b-date').value;
-    const time = document.getElementById('b-time').value;
-    const pkg = document.getElementById('b-package').value;
-    const artists = document.getElementById('b-artists').value;
-    const notes = document.getElementById('b-notes').value;
-    const msg = encodeURIComponent(
-      `Hi Ghouse Records! I'd like to book a session.\n`+
-      `Name: ${name}\nPhone: ${phone}\nDate: ${date}\nTime: ${time}\n`+
-      `Session: ${pkg}\nArtists: ${artists}\n`+
-      (notes ? `Notes: ${notes}\n` : '')
-    );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-  });
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
 
-  // ticketing
-  document.querySelectorAll('.tier').forEach(tier=>{
-    const minus = tier.querySelector('.qty-minus');
-    const plus = tier.querySelector('.qty-plus');
-    const qtyEl = tier.querySelector('.qty');
-    let qty = 1;
-    minus.addEventListener('click', ()=>{ qty = Math.max(1, qty-1); qtyEl.textContent = qty; });
-    plus.addEventListener('click', ()=>{ qty = Math.min(10, qty+1); qtyEl.textContent = qty; });
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
 
-    tier.querySelector('.tier-btn').addEventListener('click', ()=>{
-      const tierName = tier.dataset.tier;
-      const price = parseInt(tier.dataset.price,10);
-      const total = price*qty;
-      const ref = 'GHR-' + Math.random().toString(36).slice(2,7).toUpperCase();
+            // Handle hero section separately
+            if (window.scrollY < 200) {
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#home') {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }
 
-      document.getElementById('refCode').textContent = ref;
-      document.getElementById('momoSteps').innerHTML =
-        `<b>${qty}× ${tierName}</b> — total <b>UGX ${total.toLocaleString()}</b><br>`+
-        `<b>1.</b> Send UGX ${total.toLocaleString()} via MTN MoMo to <b>+256 706 612 367</b> (Ghouse Records)<br>`+
-        `<b>2.</b> Use <b>${ref}</b> as the payment comment<br>`+
-        `<b>3.</b> Tap "Confirm on WhatsApp" below — we'll text your e-ticket back`;
+        // Stats counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const triggerPoint = window.scrollY + window.innerHeight - 100;
 
-      const msg = encodeURIComponent(
-        `Hi Ghouse Records! I'd like to confirm a ticket order.\n`+
-        `Tier: ${tierName}\nQty: ${qty}\nTotal: UGX ${total.toLocaleString()}\nReference: ${ref}\n`+
-        `I've sent payment via MTN MoMo — please confirm and send my e-ticket.`
-      );
-      document.getElementById('ticketWA').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-      document.querySelector('.ticket-summary').scrollIntoView({behavior:'smooth', block:'center'});
-    });
-  });
-</script>
+            counters.forEach(counter => {
+                const counterTop = counter.getBoundingClientRect().top + window.scrollY;
+                const target = parseInt(counter.getAttribute('data-target'));
 
+                if (triggerPoint > counterTop && !counter.classList.contains('counted')) {
+                    counter.classList.add('counted');
+                    let count = 0;
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    const suffix = counter.textContent.includes('%') ? '%' : '+';
+
+                    function updateCount() {
+                        count += increment;
+                        if (count < target) {
+                            counter.textContent = Math.floor(count) + (target > 100 ? '+' : '');
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.textContent = target + (target > 100 ? '+' : '');
+                        }
+                    }
+                    updateCount();
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateCounters);
+        window.addEventListener('load', animateCounters);
+
+        // Scroll reveal animations
+        function revealOnScroll() {
+            const elements = document.querySelectorAll(
+                '.service-card, .project-card, .team-card, .testimonial-card, .process-step, .stat-card, .about-grid, .contact-wrapper'
+            );
+            const triggerPoint = window.scrollY + window.innerHeight - 80;
+
+            elements.forEach(el => {
+                const elTop = el.getBoundingClientRect().top + window.scrollY;
+                if (triggerPoint > elTop && !el.classList.contains('revealed')) {
+                    el.classList.add('revealed');
+                    el.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Contact form handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            // Simple validation is handled by HTML5 required attributes
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Message Sent!';
+                submitBtn.style.background = '#28a745';
+                submitBtn.style.color = '#fff';
+                form.reset();
+
+                setTimeout(() => {
+                    submitBtn.textContent = 'Send Message →';
+                    submitBtn.style.background = '';
+                    submitBtn.style.color = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 1500);
+        }
+
+        // Expose function globally
+        window.handleFormSubmit = handleFormSubmit;
+
+        // Initialize active link on load
+        updateActiveLink();
+    </script>
 </body>
 </html>
